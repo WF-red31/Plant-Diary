@@ -15,15 +15,21 @@
       <li>
         <%= link_to "Plant Diary", root_path %>
       </li>
-      <li>
-        <a>新規登録</a>
-      </li>
-      <li>
-        <a>サインイン</a>
-      </li>
-      <li>
-        <%= link_to "About", about_path %>
-      </li>
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <a>新規登録</a>
+        </li>
+        <li>
+          <a>サインイン</a>
+        </li>
+        <li>
+          <%= link_to "About", about_path %>
+        </li>
+      <% end %>
     </header>
     <%= yield %>
   </body>
