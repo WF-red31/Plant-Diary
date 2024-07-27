@@ -21,10 +21,10 @@
         </li>
       <% else %>
         <li>
-          <a>新規登録</a>
+          <%= link_to "新規登録", new_user_registration_path %>
         </li>
         <li>
-          <a>サインイン</a>
+          <%= link_to "サインイン", new_user_session_path %>
         </li>
         <li>
           <%= link_to "About", about_path %>
