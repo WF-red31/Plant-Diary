@@ -1,4 +1,9 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+    
+  end
+  
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
@@ -16,6 +21,13 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "ユーザーを削除しました。"
+    redirect_to new_user_registration_path
   end
   
   private
