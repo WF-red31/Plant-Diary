@@ -7,10 +7,18 @@
   <% end %>
 </div>
 
-<% @posts.each do |post| %>
-  <div>
-    <%= image_tag post.get_image %>
-      <p>タイトル：<%= post.title %></p>
-    <p>本文：<%= post.body %></p>
+<div class="card-list-container py-5">
+  <% @posts.each do |post| %>
+  <div class="card w-50 mx-auto mt-4 shadow-lg">
+    <%= image_tag post.get_image, class: "card-img-top"; %>
+    <div class="card-body">  
+      <div class="row">
+        <div class="col-12">
+          <p class="card-title">タイトル：<%= post.title %></p>
+          <p class="caed-text">本文：<%= post.body %></p>
+        </div>
+      </div>
+    </div>
   </div>
-<% end %>
+  <% end %>
+</div>
