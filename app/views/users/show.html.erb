@@ -10,7 +10,9 @@
 <div class="card-list-container py-5">
   <% @posts.each do |post| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
-    <%= image_tag post.get_image(500,450), class: "card-img-top post-image"; %>
+    <%= link_to post_path(post.id) do %>
+      <%= image_tag post.get_image(500,450), class: "card-img-top post-image"; %>
+    <% end %>
     <div class="card-body">  
       <div class="row">
         <div class="col-12">
