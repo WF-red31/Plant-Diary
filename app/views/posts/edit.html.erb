@@ -3,7 +3,6 @@
 
 
 
-<p><%= link_to "戻る", post_path(@post.id) %></p>
 <div class="container">
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
@@ -26,6 +25,7 @@
           <hr>
   
           <%= f.submit '保存', class: "btn btn-lg btn-block btn-info mt-4"; %>
+          <%= link_to "戻る", post_path(@post.id), class: "btn btn-lg btn-block btn-secondary"; %>
   
         <% end %>
       </div>
