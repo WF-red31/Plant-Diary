@@ -11,5 +11,6 @@ ja:
         image: 画像
       user:
         name: 名前
-    
+        profile_image: プロフィール画像
+        
   
