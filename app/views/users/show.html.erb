@@ -25,6 +25,7 @@
         <div class="card-body">  
           <p class="card-title">タイトル：<%= post.title %></p>
           <p class="caed-text">本文：<%= post.body %></p>
+          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id), class: "text-dark"; %></p>
         </div>
       </div>
       <% end %>
