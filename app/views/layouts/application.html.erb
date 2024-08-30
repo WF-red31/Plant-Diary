@@ -24,6 +24,7 @@
           <div class = "collapse navbar-collapse" id="navbarNavDropdown">
             <ul class = "navbar-nav ml-auto">
               <% if user_signed_in? %>
+                
                 <li class="nav-item">
                   <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light"  %>    
                 </li>

@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <%= form_with url: search_parh, method: :get, local: true do |f| %>
+    <%= f.select :model, [["投稿を検索", :post], ["ユーザーを検索", :user]], { selected: params[:model] }, {} %>
+    <%= f.search_field :keyword, value: params[:keyword] %>
+    <%= f.submit '検索' %>
+  <% end %>
+<% end %>
