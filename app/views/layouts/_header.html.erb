@@ -4,10 +4,10 @@
       <li>
         <%= link_to "PlantDiary", root_path, class: "navbar-brand text-light" %>
       </li>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class = "collapse navbar-collapse" id="navbarNavDropdown">
+      <div class = "collapse navbar-collapse" id="navbarDropdown">
         <ul class = "navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-item">
@@ -16,11 +16,18 @@
             <li class="nav-item">
               <%= link_to "投稿フォーム", new_post_path, class: "nav-link text-light" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "投稿一覧", posts_path, class: "nav-link text-light" %>
-            </li>
-            <li class="nav-item">
-              <%= link_to "ユーザー一覧", users_path, class: "nav-link text-light" %>
+            <li class ="nav-item dropdown">
+              <a class ="nav-link text-light dropdown-toggle" typw = "button" id="dropdownmenu" data-toggle="dropdown" aria-expanded="false">
+                一覧表示
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
+                <li class="dropdown-item">
+                  <%= link_to "投稿一覧", posts_path, class: "text-dark" %>
+                </li>
+                <li class="dropdown-item">
+                  <%= link_to "ユーザー一覧", users_path, class: "text-dark" %>
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
