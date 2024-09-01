@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
       if params[:model] == 'post'
         @posts = Post.all
         if params[keyword].present?
-          @posts = @posts.where('title LIKE ?', "%#{params[:keyword]}%")
+          @posts = @posts.where('content LIKE ?', "%#{params[:keyword]}%")
         end
       elsif params[:model] == 'user'
         @users = User.all

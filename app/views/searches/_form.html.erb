@@ -1,7 +1,15 @@
-<% if user_signed_in? %>
-  <%= form_with url: search_parh, method: :get, local: true do |f| %>
-    <%= f.select :model, [["投稿を検索", :post], ["ユーザーを検索", :user]], { selected: params[:model] }, {} %>
-    <%= f.search_field :keyword, value: params[:keyword] %>
-    <%= f.submit '検索' %>
-  <% end %>
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="ol-md-3 mt-4 mx-auto">
+      <% if user_signed_in? %>
+        <div class = "form-inline">
+        <%= form_with url: search_path,local:true, method: :get do |f| %>
+          <%= f.select :model, ({ "投稿" => "post", "ユーザー" => "user" }), class: "custom-select mr-sm-2"; %>
+          <%= f.search_field :keyword, value: params[:keyword], class: "form-control mr-sm-2"; %>
+          <%= f.submit '検索', class: "btn btn btn-outline-secondary my-2 my-sm-0"; %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
