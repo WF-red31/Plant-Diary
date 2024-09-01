@@ -2,7 +2,10 @@
   <nav class = "navbar navbar-expand-lg navbar-dark bg-success">
     <div class = "container">
       <li>
-        <%= link_to "PlantDiary", root_path, class: "navbar-brand text-light" %>
+        <%= link_to  root_path, class: "navbar-brand text-light" do %>
+          <i class="fa-solid fa-seedling"></i>
+          PlantDiary
+        <%end%>
       </li>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarDropdown" aria-controls="navbarDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,36 +14,61 @@
         <ul class = "navbar-nav ml-auto">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to "マイページ", user_path(current_user.id), class: "nav-link text-light"  %>    
+              <%= link_to  user_path(current_user.id), class: "nav-link text-light" do %>
+                <i class="fa-solid fa-house-user"></i>
+                マイページ
+              <%end%>
             </li>
             <li class="nav-item">
-              <%= link_to "投稿フォーム", new_post_path, class: "nav-link text-light" %>
+              <%= link_to  new_post_path, class: "nav-link text-light" do%>
+                <i class="fa-solid fa-pen-to-square"></i>
+                投稿フォーム
+              <%end%>
             </li>
             <li class ="nav-item dropdown">
               <a class ="nav-link text-light dropdown-toggle" typw = "button" id="dropdownmenu" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-rectangle-list"></i>
                 一覧表示
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownmenu">
                 <li class="dropdown-item">
-                  <%= link_to "投稿一覧", posts_path, class: "text-dark" %>
+                  <%= link_to  posts_path, class: "text-dark" do%>
+                    <i class="fa-solid fa-sheet-plastic"></i>
+                    投稿一覧
+                  <%end%>
                 </li>
                 <li class="dropdown-item">
-                  <%= link_to "ユーザー一覧", users_path, class: "text-dark" %>
+                  <%= link_to  users_path, class: "text-dark" do%>
+                    <i class="fa-solid fa-address-book"></i>
+                    ユーザー一覧
+                  <%end%>
                 </li>
               </ul>
             </li>
             <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>
+              <%= link_to  destroy_user_session_path, method: :delete, class: "nav-link text-light" do%>
+                <i class="fa-solid fa-right-from-bracket"></i>
+                ログアウト
+              <%end%>
             </li>
           <% else %>
             <li class="nav-item">
-              <%= link_to "新規登録", new_user_registration_path, class: "nav-link text-light" %>
+              <%= link_to  new_user_registration_path, class: "nav-link text-light" do%>
+                <i class="fa-solid fa-user-plus"></i>
+                新規登録
+              <%end%>
             </li>
             <li class="nav-item">
-              <%= link_to "ログイン", new_user_session_path, class: "nav-link text-light" %>
+              <%= link_to  new_user_session_path, class: "nav-link text-light" do%>
+                <i class="fa-solid fa-right-to-bracket"></i>
+                ログイン
+              <%end%>
             </li>
             <li class="nav-item">
-              <%= link_to "About", about_path, class: "nav-link text-light" %>
+              <%= link_to  about_path, class: "nav-link text-light" do%>
+                <i class="fa-solid fa-circle-info"></i>
+                About
+              <%end%>
             </li>
           <% end %>
         </ul>
