@@ -4,9 +4,9 @@
       <% if user_signed_in? %>
         <div class = "form-inline">
         <%= form_with url: search_path,local:true, method: :get do |f| %>
-          <%= f.select :model, ({ "投稿" => "post", "ユーザー" => "user" }), class: "custom-select mr-sm-2"; %>
-          <%= f.search_field :keyword, value: params[:keyword], class: "form-control mr-sm-2"; %>
-          <%= f.submit '検索', class: "btn btn btn-outline-secondary my-2 my-sm-0"; %>
+          <%= f.select :model, ({ "投稿" => "post", "ユーザー" => "user" }), {  selected: params[:model] }, { class: "custom-select mr-sm-2" } %>
+          <%= f.search_field :keyword, value: params[:keyword], class: "form-control mr-sm-2" %>
+          <%= f.submit '検索', class: "btn btn btn-outline-secondary my-2 my-sm-0" %>
         <% end %>
       </div>
       <% end %>
