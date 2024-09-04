@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :admin, skip: [:registrations, :password], controllers: {
+    sessions: 'admin/sessions'
+  }
   get 'posts/edit'
   devise_for :users
   root to: 'homes#top'
