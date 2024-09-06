@@ -1,8 +1,8 @@
 <% if @posts.any? %>
 <h2>Books</h2>
-  <%= render 'posts/index', posts:@posts %>
+  <%= render 'public/posts/index', posts:@posts %>
 <% elsif @users.any? %>
-  <%= render 'users/index', users:@users %>
+  <%= render 'public/users/index', users:@users %>
 <% else %>
   該当するデーターがありません。
 <% end %>
