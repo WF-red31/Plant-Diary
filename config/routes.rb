@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   
   namespace :admin do
-    get 'dashboards', to: 'dashboards#index'
+    resources :dashboards, only: [:index, :show]
     resources :users, only: [:destroy]
   end
   
