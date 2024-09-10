@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :dashboards, only: [:index, :show]
     resources :users, only: [:destroy]
     resources :posts, only: [:destroy]
+    resources :comments, only: [:destroy]
     get 'post_show/:id' => 'dashboards#post_show'
   end
   
