@@ -10,5 +10,20 @@
       <p><%= link_to '削除', admin_user_path(@user), class: "btn btn-sm btn-danger", method: :delete, data: { confirm: '本当に削除しますか？' } %> </p>
       <p><%= link_to '戻る', admin_dashboards_path, class: "btn btn-sm btn-primary" %></p>
     </div>
+    
+    <div class="col-md-8 mx-auto">
+      <% @posts.each do |post| %>
+        <div class="card mt-4 shadow-lg">
+          <%= link_to admin_path(post) do %>
+            <%= image_tag post.get_image(500,450), class: "card-img-top post-image"; %>
+          <% end %>
+          <div class="card-body">  
+            <p class="card-title">タイトル：<%= post.title %></p>
+            <p class="caed-text">本文：<%= post.body %></p>
+          </div>
+        </div>
+      <% end %>
+      <%= paginate @posts %>
+    </div>
   </div>
-</div>  
+</div>
