@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:destroy]
     resources :comments, only: [:destroy]
     get 'post_show/:id' => 'dashboards#post_show'
+    get 'search' => 'searches#search'
   end
   
   scope module: :public do
