@@ -13,12 +13,13 @@
     <div class = "container">
       <%= link_to '管理者画面', admin_dashboards_path, class:"navbar-brand text-light"%>
       <% if admin_signed_in? %>
+          <%= render 'admin/searches/form'%>
         <div class="text-right">
           <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "text-light" %>
         </div>
       <% end %>
     </div>
   </nav>
-      <%= yield %>
+    <%= yield %>
 </body>
 </html>

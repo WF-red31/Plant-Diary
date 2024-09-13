@@ -1,5 +1,5 @@
 <% if @posts.any? %>
-<h2>Books</h2>
+<h2>投稿一覧</h2>
   <%= render 'public/posts/index', posts:@posts %>
 <% elsif @users.any? %>
   <%= render 'public/users/index', users:@users %>
