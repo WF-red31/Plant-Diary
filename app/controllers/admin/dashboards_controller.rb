@@ -14,4 +14,5 @@ class Admin::DashboardsController < ApplicationController
     def post_show
       @post = Post.find(params[:id])
     end
+    
 end
