@@ -16,6 +16,15 @@ class Public::GroupsController < ApplicationController
     end
   end
   
+  def index
+    @groups = Group.all
+  end
+  
+  def show
+    @group = Group.find(params[:id])
+    @post = @group.posts.page(params[:page])
+  end
+  
   private
   
   def group_params

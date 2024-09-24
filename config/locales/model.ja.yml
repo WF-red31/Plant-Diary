@@ -3,6 +3,7 @@ ja:
     models: 
       post: 投稿
       user: ユーザー
+      group: グループ
     attributes:
       post:
         title: タイトル
@@ -12,5 +13,7 @@ ja:
       user:
         name: 名前
         profile_image: プロフィール画像
-        
+      group:
+        name: グループ名
+        introduction: グループ説明
   

@@ -1,0 +1,38 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3 mt-4 mx-auto">
+      <h2 class="text-dark mb-0">
+        グループ名:
+        <%= @group.name %>
+      </h2>
+      <hr>
+      <h4 clss = "text-dark">
+        グループ内容:
+        <%= @group.introduction %>
+      </h4>
+      <% if @group.owner_id == current_user.id %>
+        <hr>
+        
+      <% end %>
+    </div>
+  
+
+
+  
+    <div class="col-md-8 mx-auto">
+      <% @posts.each do |post| %>
+      <div class="card mt-4 shadow-lg">
+        <%= link_to post_path(post.id) do %>
+          <%= image_tag post.get_image(500,450), class: "card-img-top post-image"; %>
+        <% end %>
+        <div class="card-body">  
+          <p class="card-title">タイトル：<%= post.title %></p>
+          <p class="caed-text">本文：<%= post.body %></p>
+          <p><%= link_to "#{post.comments.count} コメント", post_path(post.id), class: "text-dark"; %></p>
+        </div>
+      </div>
+      <% end %>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
