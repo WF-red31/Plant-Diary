@@ -2,7 +2,7 @@ class Post < ApplicationRecord
     
     has_one_attached :image
     belongs_to :user
-    belongs_to :group
+    has_many :group_users, dependent: :destroy
     has_many :comments, dependent: :destroy
     
     validates :title, presence: true

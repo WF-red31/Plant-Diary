@@ -20,6 +20,38 @@
           </span>
           <span>コメント件数：<%= @post.comments.count %></span>
           <p>投稿日：<%= l @post.date, format: :long %></p>
+          <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  グループに追加する
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">グループに追加</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if current_user.groups.any? %>
+          <%= form_with model: :post_group do |f| %>
+            <%= f.label :group_id, "追加するグループ" %>
+            <%= f.collection_select :group_id, current_user.groups, :id, :name, { include_blank: "-groupを選択-" }, { class: "form-control" } %>
+            <%= f.submit "追加する", class: "btn btn-primary btn-block my-4" %>
+          <% end %>
+        <% end %>
+          
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <%= link_to "groupを作成", new_group_path(post_id: @post.id), class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+</div>
           <% if @post.user == current_user %>
             <p><%= link_to "編集", edit_post_path(@post.id), class: "btn btn-sm btn-success" %>
             |

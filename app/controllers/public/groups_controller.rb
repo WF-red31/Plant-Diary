@@ -6,11 +6,15 @@ class Public::GroupsController < ApplicationController
   end
   
   def create
-    @group = Group.new(group_params)
+    @group = current_user.groups.build(group_params)
     @group.owner_id = current_user.id
     if @group.save
       flash[:notice] = "新規グループの作成に成功しました。"
-      redirect_to groups_path
+      if params[:post_id].present?
+        redirect_to post_path(params[:post_id])
+      else
+        redirect_to groups_path
+      end
     else
       render :new
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_09_24_070052) do
+ActiveRecord::Schema.define(version: 2024_09_26_075054) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -69,11 +69,19 @@ ActiveRecord::Schema.define(version: 2024_09_24_070052) do
     t.integer "owner_id"
   end
 
+  create_table "post_groups", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "group_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_post_groups_on_group_id"
+    t.index ["post_id"], name: "index_post_groups_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.string "body"
     t.date "date"
-    t.integer "group_id"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -94,4 +102,6 @@ ActiveRecord::Schema.define(version: 2024_09_24_070052) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "post_groups", "groups"
+  add_foreign_key "post_groups", "posts"
 end

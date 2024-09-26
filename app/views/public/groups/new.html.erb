@@ -5,6 +5,7 @@
       <h1 class="text-dark bg-light p-4 mb-0">グループ作成フォーム</h1>
       <div class="form-body p-4">
         <%= form_with model: @group do |f| %>
+          <%= hidden_field_tag :post_id, params[:post_id] %>
           <div class="input-group mb-3 mt-4">
             <%= f.label :name, class: "h4" %>
             <%= f.text_field :name, class: "form-control"; %>
