@@ -2,11 +2,13 @@ class Post < ApplicationRecord
     
     has_one_attached :image
     belongs_to :user
-    has_many :group_users, dependent: :destroy
+    has_many :post_groups, dependent: :destroy
     has_many :comments, dependent: :destroy
     
     validates :title, presence: true
+    validates :title, length: {in: 2..20}
     validates :body, presence: true
+    validates :body, length: {in: 2..200}
     validates :date, presence: true
     
     def get_image(width, height)
