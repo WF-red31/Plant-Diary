@@ -8,6 +8,7 @@
       <%= image_tag @user.get_profile_image(100,100), class: "rounded-circle mt-3 user-page-profile"; %>
       <% if @user == current_user %>
         <hr>
+        <p><%= link_to "グループを作成する", new_group_path, class: "btn btn-sm btn-primary"%></p>
         <p><%= link_to "プロフィール編集", edit_user_path(@user.id), class: "btn btn-sm btn-info "; %></p>
         <p><%= link_to "退会", user_path(@user.id), class: "btn btn-sm btn-danger",  method: :delete, "data-confirm" => "本当に退会しますか？"%></p>
       <% end %>
