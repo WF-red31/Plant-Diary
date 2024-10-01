@@ -4,7 +4,7 @@ class Public::PostGroupsController < ApplicationController
     def destroy
       @post_group = Post_group.find(params[:id])
       @post_group.destroy
-      flash[:notice] = "グループの削除に成功しました。"
+      flash[:notice] = "グループの中から投稿の削除をすることに成功しました。"
       redirect_to groups_path
     end
     
