@@ -15,4 +15,8 @@ class Admin::DashboardsController < ApplicationController
       @post = Post.find(params[:id])
     end
     
+    def group_index
+      @groups = Group.all
+    end
+    
 end

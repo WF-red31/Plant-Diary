@@ -1,0 +1,23 @@
+<div class = "col-md-8 offset-md-1">
+  <h2>グループ一覧</h2>
+  <table class = "table">
+    <thead>
+      <tr>
+        <th>グループ名</th>
+        <th>説明</th>
+        <th>グループ作成者</th>
+        <th colsapn = "3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @groups.each do |group| %>
+        <tr>
+          <td><%= group.name %></td>
+          <td><%= group.introduction%></td>
+          <td><%= group.user.name%></td>
+          <td><%= link_to "削除", admin_group_path(group), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

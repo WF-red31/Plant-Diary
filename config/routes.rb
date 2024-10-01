@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     resources :users, only: [:destroy]
     resources :posts, only: [:destroy]
     resources :comments, only: [:destroy]
+    resources :groups, only: [:destroy]
     get 'post_show/:id' => 'dashboards#post_show'
     get 'search' => 'searches#search'
+    get 'group_index' => 'dashboards#group_index'
   end
   
   scope module: :public do
