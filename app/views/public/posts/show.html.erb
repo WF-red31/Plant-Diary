@@ -24,6 +24,11 @@
           <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModalCenter">
             グループに追加する
           </button>
+          <div class="d-flex my-3">
+            <% @post.groups.each do |group| %>
+              <%= link_to group.name, group_path(group), class: "badge badge-secondary mr-2 " %>
+            <% end %>
+          </div>
 
 <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -38,6 +43,7 @@
                 <div class="modal-body">
                   <% if current_user.groups.any? %>
                     <%= form_with model: @post_group do |f| %>
+                      <%= f.hidden_field :post_id %>
                       <%= f.label :group_id, "追加するグループ" %>
                       <%= f.collection_select :group_id, current_user.groups, :id, :name, { include_blank: "-groupを選択-" }, { class: "form-control" } %>
                       <%= f.submit "追加する", class: "btn btn-primary btn-block my-4" %>

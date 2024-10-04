@@ -26,7 +26,7 @@ class Public::GroupsController < ApplicationController
   
   def show
     @group = Group.find(params[:id])
-    @post = Post.page(params[:page])
+    @posts = @group.posts.page(params[:page])
   end
   
   def edit
@@ -37,7 +37,7 @@ class Public::GroupsController < ApplicationController
     @group = Group.find(params[:id])
     if @group.update(group_params)
       flash[:notice] = "グループの更新に成功しました。"
-      redirect_to groups_path
+      redirect_to group_path(@group)
     else
       render :edit
     end
