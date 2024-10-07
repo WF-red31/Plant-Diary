@@ -3,11 +3,13 @@
     <div class="col-md-3 mt-4 mx-auto">
       <h2 class="text-dark mb-0">
         グループ名:
+        <br>
         <%= @group.name %>
       </h2>
       <hr>
       <h4 clss = "text-dark">
         グループ内容:
+        <br>
         <%= @group.introduction %>
       </h4>
       <% if @group.owner_id == current_user.id %>
