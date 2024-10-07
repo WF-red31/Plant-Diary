@@ -5,6 +5,8 @@ class Post < ApplicationRecord
     has_many :post_groups, dependent: :destroy
     has_many :groups, through: :post_groups
     has_many :comments, dependent: :destroy
+    has_many :post_tafs, dependent: :destroy
+    has_many :tags, through: :post_tags
     
     validates :title, presence: true
     validates :title, length: {in: 2..20}
