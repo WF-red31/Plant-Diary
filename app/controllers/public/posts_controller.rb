@@ -7,8 +7,10 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
+    tag_list = params[:post][:tag_id].split(',')
     if @post.save
       flash[:notice] = "新規投稿の作成に成功しました。"
+      @post.save_tags(tag_list)
       redirect_to posts_path
     else
       render :new
@@ -17,6 +19,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page])
+    @tag_list = Tag.all
   end
 
   def show
