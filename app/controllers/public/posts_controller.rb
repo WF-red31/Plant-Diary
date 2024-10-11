@@ -7,10 +7,10 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    tag_list = params[:post][:tag_id].split(',')
+    #tag_list = params[:post][:tag_id].split(',')
     if @post.save
       flash[:notice] = "新規投稿の作成に成功しました。"
-      @post.save_tags(tag_list)
+      #@post.save_tags(tag_list)
       redirect_to posts_path
     else
       render :new
@@ -18,7 +18,10 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page])
+    @posts = Post.includes(:post_tags)
+    @posts = @posts.where('post_tags.tag_id': params[:tag_id]) if params[:tag_id].present?
+    @posts = @posts.page(params[:page])
+    @tags = Tag.all
     @tag_list = Tag.all
   end
 
@@ -26,6 +29,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @comment = Comment.new
     @post_group = @post.post_groups.build
+    @tags = @post.tags
   end
 
   def edit
@@ -52,7 +56,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :image, :date)
+    params.require(:post).permit(:title, :body, :image, :date, :tag_names)
   end
   
   def is_matching_login_post

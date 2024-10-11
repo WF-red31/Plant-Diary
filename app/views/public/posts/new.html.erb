@@ -16,6 +16,7 @@
             <%= f.text_area :body, class: "form-control", rows:3, placeholder:"説明はここに"; %>
             <%= f.label :date, class: "h4" %>
             <%= f.date_field :date , class: "form-control"%>
+            <%= f.text_field :tag_names, class: "form-control" %>
             <hr>
             <%= f.submit '投稿', class: "btn btn-lg btn-block btn-info mt-4"; %>
         <% end %>
