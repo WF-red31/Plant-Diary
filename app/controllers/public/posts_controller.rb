@@ -22,7 +22,6 @@ class Public::PostsController < ApplicationController
     @posts = @posts.where('post_tags.tag_id': params[:tag_id]) if params[:tag_id].present?
     @posts = @posts.page(params[:page])
     @tags = Tag.all
-    @tag_list = Tag.all
   end
 
   def show
