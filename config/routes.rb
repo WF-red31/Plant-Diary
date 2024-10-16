@@ -9,9 +9,11 @@ Rails.application.routes.draw do
     resources :posts, only: [:destroy]
     resources :comments, only: [:destroy]
     resources :groups, only: [:destroy]
+    resources :tags, only: [:destroy]
     get 'post_show/:id' => 'dashboards#post_show'
     get 'search' => 'searches#search'
     get 'group_index' => 'dashboards#group_index'
+    get 'tag_index'=> 'dashboards#tag_index'
   end
   
   scope module: :public do

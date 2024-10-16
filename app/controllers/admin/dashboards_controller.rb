@@ -19,4 +19,8 @@ class Admin::DashboardsController < ApplicationController
       @groups = Group.all
     end
     
+    def tag_index
+      @tags = Tag.all
+    end
+    
 end

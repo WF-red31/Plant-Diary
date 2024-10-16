@@ -1,0 +1,19 @@
+<div class = "col-md-8 offset-md-1">
+  <h2>タグ一覧</h2>
+  <table class = "table">
+    <thead>
+      <tr>
+        <th>タグ名</th>
+        <th colsapn = "3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tags.each do |tag| %>
+        <tr>
+          <td><%= tag.name %></td>
+          <td><%= link_to "削除", admin_tag_path(tag), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

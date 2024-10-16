@@ -16,6 +16,7 @@
           <%= render 'admin/searches/form'%>
         <div class="text-right">
           <%= link_to 'グループ一覧', admin_group_index_path, class: "text-light mr-3" %>
+          <%= link_to 'タグ一覧', admin_tag_index_path, class: "text-light mr-3"%>
           <%= link_to 'ログアウト', destroy_admin_session_path, method: :delete, class: "text-light" %>
         </div>
       <% end %>
