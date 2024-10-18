@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :is_matching_login_post, only: [:edit, :update]
+  before_action :is_matching_login_post, only: [:edit, :update, :destroy]
   def new
     @post = Post.new
   end
