@@ -19,6 +19,5 @@ class User < ApplicationRecord
       self.save
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
-    profile_image
   end
 end
