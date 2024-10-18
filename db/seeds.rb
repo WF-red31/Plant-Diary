@@ -15,7 +15,7 @@ Admin.create!(email: 'admin@example.com' , password: 'password' )
   )
 end
 
-if Rails.evn.development?
+if Rails.env.development?
   users = User.all.limit(3)
   
   users.each_with_index do |user, n|
