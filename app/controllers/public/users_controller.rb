@@ -1,8 +1,9 @@
 class Public::UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update, :destroy]
+  
   def index
     @users = User.page(params[:page])
-    
   end
   
   def show
