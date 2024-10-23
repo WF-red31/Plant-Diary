@@ -13,6 +13,7 @@ class Admin::DashboardsController < ApplicationController
     
     def post_show
       @post = Post.find(params[:id])
+      @user = User.find(params[:id])
     end
     
     def group_index

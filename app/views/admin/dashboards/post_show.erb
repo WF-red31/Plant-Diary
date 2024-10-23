@@ -21,6 +21,7 @@
           <span>コメント件数：<%= @post.comments.count %></span>
           <p>投稿日：<%= l @post.date, format: :long %></p>
           <p><%= link_to "削除", admin_post_path(@post), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に削除しますか？"%></p>
+          <p><%= link_to '戻る', admin_dashboard_path(@user), class: "btn btn-sm btn-primary" %></p>
         </div>
       </div>
       
